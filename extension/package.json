@@ -1,0 +1,94 @@
+{
+  "name": "joomla-mvc-jump",
+  "displayName": "Phoca Joomla MVC Jump",
+  "description": "One-click navigation between the view, model, controller and tmpl layout of a Joomla 4/5 component. Jump from any of them to the others.",
+  "version": "1.0.0",
+  "publisher": "phoca",
+  "author": {
+    "name": "Jan Pavelka (Phoca)",
+    "url": "https://github.com/PhocaCz/PhocaCodeJoomlaMvcJump"
+  },
+  "license": "GPL-2.0-only",
+  "homepage": "https://github.com/PhocaCz/PhocaCodeJoomlaMvcJump",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PhocaCz/PhocaCodeJoomlaMvcJump.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PhocaCz/PhocaCodeJoomlaMvcJump/issues"
+  },
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1f2a37",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "joomla",
+    "mvc",
+    "navigation",
+    "view",
+    "model",
+    "controller",
+    "tmpl",
+    "layout",
+    "php",
+    "phoca"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "joomlaMvc.view",
+        "title": "Go to View (HtmlView.php)",
+        "shortTitle": "View",
+        "category": "Joomla MVC",
+        "icon": { "light": "images/view-light.svg", "dark": "images/view-dark.svg" }
+      },
+      {
+        "command": "joomlaMvc.model",
+        "title": "Go to Model",
+        "shortTitle": "Model",
+        "category": "Joomla MVC",
+        "icon": { "light": "images/model-light.svg", "dark": "images/model-dark.svg" }
+      },
+      {
+        "command": "joomlaMvc.controller",
+        "title": "Go to Controller",
+        "shortTitle": "Controller",
+        "category": "Joomla MVC",
+        "icon": { "light": "images/controller-light.svg", "dark": "images/controller-dark.svg" }
+      },
+      {
+        "command": "joomlaMvc.tmpl",
+        "title": "Go to Layout (tmpl)",
+        "shortTitle": "Layout",
+        "category": "Joomla MVC",
+        "icon": { "light": "images/tmpl-light.svg", "dark": "images/tmpl-dark.svg" }
+      }
+    ],
+    "keybindings": [
+      { "command": "joomlaMvc.view",       "key": "ctrl+alt+v", "when": "editorTextFocus && resourceExtname == .php" },
+      { "command": "joomlaMvc.model",      "key": "ctrl+alt+m", "when": "editorTextFocus && resourceExtname == .php" },
+      { "command": "joomlaMvc.controller", "key": "ctrl+alt+c", "when": "editorTextFocus && resourceExtname == .php" },
+      { "command": "joomlaMvc.tmpl",       "key": "ctrl+alt+t", "when": "editorTextFocus && resourceExtname == .php" }
+    ],
+    "menus": {
+      "editor/title": [
+        { "command": "joomlaMvc.tmpl",       "group": "navigation@90", "when": "resourcePath =~ /com_[^/\\\\]+[/\\\\](tmpl|src)[/\\\\]/" },
+        { "command": "joomlaMvc.view",       "group": "navigation@91", "when": "resourcePath =~ /com_[^/\\\\]+[/\\\\](tmpl|src)[/\\\\]/" },
+        { "command": "joomlaMvc.model",      "group": "navigation@92", "when": "resourcePath =~ /com_[^/\\\\]+[/\\\\](tmpl|src)[/\\\\]/" },
+        { "command": "joomlaMvc.controller", "group": "navigation@93", "when": "resourcePath =~ /com_[^/\\\\]+[/\\\\](tmpl|src)[/\\\\]/" }
+      ]
+    }
+  }
+}
